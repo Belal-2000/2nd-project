@@ -1,0 +1,6 @@
+dist
+.vs*
+node_mo*
+.env
+*-lock.json
+docker*
