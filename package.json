@@ -6,7 +6,9 @@
   "scripts": {
     "build": "npx tsc",
     "watch": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/server.js\"",
-
+    "createDB":"db-migrate db:create shop",
+    "createDBTest":"db-migrate db:create shop_test",
+    "createAll": "npm run createDB && npm run createDBTest ",
     "test": "ENV=test npm run build && npm run test_up && jasmine-ts && npm run test_down",
     "test_up":"db-migrate up:test -e test ",
     "test_down":"db-migrate reset:test -e test"
