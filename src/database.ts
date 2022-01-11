@@ -17,7 +17,6 @@ const {
 } = process.env;
 
 let con: Pool = new Pool();
-console.log(ENV)
 if (ENV === "dev") {
     con = new Pool({
         host: host,

@@ -11,7 +11,6 @@ const verifyAuthToken = (req: Request, res: Response, next: express.NextFunction
 
         next()
     } catch (error) {
-        console.log(error)
         res.status(401)
         res.json('Access denied , invalid token')
     }
