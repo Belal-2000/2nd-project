@@ -9,7 +9,8 @@
     "test_env": "set ENV=test",
     "test": "npm run test_env && npm run test_up && jasmine-ts && npm run test_down",
     "test_up": "db-migrate up:test -e test ",
-    "test_down": "db-migrate reset:test -e test"
+    "test_down": "db-migrate reset:test -e test",
+    "migrate": "npx db-migrate up"
   },
   "author": "Udacity",
   "license": "ISC",

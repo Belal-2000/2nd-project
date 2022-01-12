@@ -27,13 +27,21 @@
 
 ``` npm install ```
 
+
+- To run migrations run:
+
+``` npm run migrate ```
+
+
 - To run the watch command run :
 
 ``` npm run watch ```
 
+
 - To run tests run :
 
 ``` npm run test ```
+
 
 - To compile to js run :
 
@@ -54,7 +62,7 @@
 - 'BB' can be whatever you want EX: mySecretBB
 - 'TOKEN_SEKRET' can be whatever you want EX: cantKnowMe
 - App will run on port 'db_port' 3000
-- For EndPoints read the REQUIREMENTS.md file
+- For EndPoints and dataShapes read the REQUIREMENTS.md file
 
 
 ### To use any endPoint that require a token :
