@@ -1,9 +1,15 @@
 import supertest from 'supertest';
 import app from '../../server';
+import genToken from './UserHandlerSpec';
 
 const request = supertest(app);
 
 describe('Testing endpoint responses for products routes', () => {
+    const tokenC = async function createToken(func: Function) {
+        const token = await func()
+        return token
+    }
+    const token = tokenC(genToken);
     it('create endpoint /products [POST] no token', async (done) => {
         const response = await request.post('/products').send({
             'name': "test1",
@@ -18,7 +24,7 @@ describe('Testing endpoint responses for products routes', () => {
             'name': "test1",
             'price': 150,
             'category': "catTest"
-        }).set('authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo1OCwiZmlyc3RuYW1lIjoibXJCIiwibGFzdG5hbWUiOiJhd3NvbWVlIiwicGFzc3dvcmQiOiIkMmIkMTAkQm9MZi5hcVJKVDNKNS5HOVRmQ3ZLdVJ3dG9KaVM0NVN0LzIuSk9JWGFIaFFyYTQuSS5ZNHkifSwiaWF0IjoxNjQxNzc1OTg5fQ.khdCXEznepIcAG0TXpJc_vfh7x9XQgwuFUKTp7u0cB4');
+        }).set('authorization', 'Bearer '+ await token);
         expect(response.status).toBe(200);
         done();
     });

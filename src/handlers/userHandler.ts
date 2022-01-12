@@ -7,13 +7,23 @@ import verifyAuthToken from '../middleWares/auth'
 const user_ = new User()
 
 const index = async (_req: Request, res: Response) => {
+  try{
   const users = await user_.index()
   res.json(users)
+  } catch (err) {
+    res.status(400)
+    res.json(err)
+  }
 }
 
 const show = async (req: Request, res: Response) => {
+  try{
   const result = await user_.show(req.params.id)
    res.json(result)
+  } catch (err) {
+    res.status(400)
+    res.json(err)
+  }
 }
 
 const create = async (req: Request, res: Response) => {
